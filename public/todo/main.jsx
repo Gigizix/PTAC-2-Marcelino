@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Routes, Route, BrowserRouter} from "react-router-dom";
-import Home from './Home/home.jsx'
+import Home from './home/home.jsx'
 import Todo from './todo/todo.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,4 +14,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    </BrowserRouter>
   </React.StrictMode>,
 )
-gg

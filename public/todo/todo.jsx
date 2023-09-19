@@ -8,7 +8,7 @@ export default function todo() {
     const [id, setId] = useState(1);
     const [floricultura, setfloricultura] = useState("");
     const [preco, setpreco] = useState("");
-  
+    const [cor, setcor] = useState("");
 
     const salvar = (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ export default function todo() {
             id: id,
             floricultura: floricultura,
             preco: preco,
-          
+            cor:cor
         }]);
         setId(id + 1);
         setAtividade("");
@@ -36,26 +36,26 @@ export default function todo() {
     return (
         <div class="container">
             <Link to="/">home</Link>
-            <img class = "jukebox" src=""></img>
+            <img class = "floricultura" src=""></img>
             <h1>Floricultura</h1>
             <form onSubmit={salvar}>
 
-                <h4><i>Album</i></h4>  
+                <h4><i>Flores</i></h4>  
                 <input type="text"
-                    value={album}
-                    onChange={(e) => { setalbum(e.target.value) }} />
+                    value={flores}
+                    onChange={(e) => { setflores(e.target.value) }} />
                
           
       
-<h4><i>Musica</i></h4>
+<h4><i>Preço</i></h4>
             <input type="text"
-                    value={musica}
-                    onChange={(e) => { setmusica(e.target.value) }} />
+                    value={preco}
+                    onChange={(e) => { setpreco(e.target.value) }} />
 
-<h4><i>Tempo</i></h4>
+<h4><i>Cor</i></h4>
                        <input type="text"
-                    value={tempo}
-                    onChange={(e) => { settempo(e.target.value) }} />
+                    value={cor}
+                    onChange={(e) => { setcor(e.target.value) }} />
 <br></br>
 <br></br>
                 <button>ADICIONAR</button>
@@ -64,9 +64,9 @@ export default function todo() {
             {lista.map((ativ) =>
                 <ul key={ativ.id}>
                     <li>
-                        <p>Album: {ativ.album}</p>
-                        <p>Musica: {ativ.musica}</p>
-                        <p>Tempo: {ativ.tempo}</p>
+                        <p>Floricultra: {ativ.floricultura}</p>
+                        <p>Preço: {ativ.preco}</p>
+                        <p>Cor: {ativ.cor}</p>
                         <button onClick={() => remover(ativ.id)}>Remover</button>
                     </li>
                 </ul>

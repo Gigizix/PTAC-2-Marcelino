@@ -1,0 +1,22 @@
+.navbar {
+    background-color: #bc9fa9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #bc9fa9;
+  }
+  
+  .logo {
+    max-width: 40px;
+  }
+  
+ 
+  .introduction {
+    background-color: #bc9fa9; 
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #bc9fa9;
+    border-radius: 5px;
+  }
+  
