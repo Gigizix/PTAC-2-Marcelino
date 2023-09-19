@@ -1,36 +1,76 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
-export default function Todo() {
+import { Link } from "react-router-dom";
+import "./style.css";
+
+export default function todo() {
     const [atividade, setAtividade] = useState("");
     const [lista, setLista] = useState([]);
-    const [id, setid] = useState(1);
+    const [id, setId] = useState(1);
+    const [floricultura, setfloricultura] = useState("");
+    const [preco, setpreco] = useState("");
+  
 
     const salvar = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         setLista([...lista, {
-            atividade:atividade, id:id
+            atividade: atividade,
+            id: id,
+            floricultura: floricultura,
+            preco: preco,
+          
         }]);
-        setid(id + 1)
-        console.log(lista)
+        setId(id + 1);
+        setAtividade("");
     };
+    const remover = (id) => {
 
+
+        const auxLista = [];
+        lista.map((list) => {
+            if (list.id !== id) {
+                auxLista.push(list);
+            }
+        });
+        setLista(auxLista);
+    }
     return (
-        <div>
-            <h1>lista de atividades</h1>
+        <div class="container">
             <Link to="/">home</Link>
+            <img class = "jukebox" src=""></img>
+            <h1>Floricultura</h1>
             <form onSubmit={salvar}>
+
+                <h4><i>Album</i></h4>  
                 <input type="text"
-                    onChange={(e) => { setAtividade(e.target.value) }} />
-                <button>Encrementa</button>
+                    value={album}
+                    onChange={(e) => { setalbum(e.target.value) }} />
+               
+          
+      
+<h4><i>Musica</i></h4>
+            <input type="text"
+                    value={musica}
+                    onChange={(e) => { setmusica(e.target.value) }} />
+
+<h4><i>Tempo</i></h4>
+                       <input type="text"
+                    value={tempo}
+                    onChange={(e) => { settempo(e.target.value) }} />
+<br></br>
+<br></br>
+                <button>ADICIONAR</button>
             </form>
 
-            {lista.map((ativ)=> 
-                <div key={ativ.id}> 
-                    <p>{ativ.id}</p>
-                    <p>{ativ.atividade}</p>
-                </div>
-           )}
-        
+            {lista.map((ativ) =>
+                <ul key={ativ.id}>
+                    <li>
+                        <p>Album: {ativ.album}</p>
+                        <p>Musica: {ativ.musica}</p>
+                        <p>Tempo: {ativ.tempo}</p>
+                        <button onClick={() => remover(ativ.id)}>Remover</button>
+                    </li>
+                </ul>
+            )}
         </div>
-    )
+    );
 }
