@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Home from './home/home.jsx'
 import Todo from './todo/todo.jsx'
